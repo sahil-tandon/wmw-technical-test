@@ -36,6 +36,7 @@
   {% include 'social-meta-tags' %}
   {% include 'style-tags', layout: 'theme' %}
   {% include 'css-variables' %}
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
   <script>
     document.documentElement.className = document.documentElement.className.replace('no-js', '');
@@ -57,6 +58,9 @@
   {% include 'script-tags', layout: 'theme' %}
 
   {{ content_for_header }}
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 </head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
