@@ -27,7 +27,7 @@
         </div>
         <div class="product-info">
           <a href="{{ product.url | within: collection }}">{{ product.title | escape }}</a>
-          <span>{% include 'product-price' %}</span>
+          <p>{% include 'product-price' %}</p>
         </div>
       </div>
     {% endfor %}
