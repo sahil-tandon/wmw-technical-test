@@ -18,14 +18,21 @@ register('featured-collection', {
 
   init() {
     this.initCache();
-    this.initCarousel();
+    this.initEvents();
   },
 
   // Initialize featured collection cache
   initCache() {
     this.cache = {
       carousel: $('.featured-collection-carousel'),
+      quickAddBtn: $('.featured-collection-carousel .quick-add')
     }
+  },
+
+  // Intialize featured collection events
+  initEvents() {
+    this.initCarousel();
+    this.cache.quickAddBtn.click(this.quickAdd);
   },
 
   // Initialize featured collection carousel
@@ -35,6 +42,17 @@ register('featured-collection', {
       contain: true,
       groupCells: '100%',
     });
+  },
+
+  // Function to quick-add selected product to cart
+  quickAdd(event) {
+    var thisVariant = $(this).data('variant-id'),
+        thisQuantity = $(this).data('quantity');
+        
+    $.post('/cart/add.js', {
+      quantity: thisQuantity,
+      id: thisVariant
+    });    
   },
 
   // Shortcut function called when a section is loaded via 'sections.load()' or by the Theme Editor 'shopify:section:load' event.
