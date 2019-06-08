@@ -4,13 +4,20 @@
  * Base styling for the featured collection product grid.
  *
  */
- .featured-collection {
-    margin: 40px 100px 70px 100px;   
+.featured-collection {
+    margin: 40px 100px 70px 100px;
+    @include media-query($small) {
+        margin: 40px 18px 70px 18px;
+    }
     h2 {
         font-size: 40px;
         line-height: 49px;
         color: #003366;
         text-align: center;
+        @include media-query($small) {
+            font-size: 28px;
+            line-height: 34px;
+        }
     }
     .featured-collection-description {        
         font-size: 18px;
@@ -18,6 +25,14 @@
         color: #9B9B9B;
         text-align: center;
         margin: 30px 20% 45px 20%;
+        @include media-query($medium) {            
+            margin: 30px 15% 45px 15%;
+        }
+        @include media-query($small) {
+            font-size: 14px;
+            line-height: 21px;
+            margin: 30px 5px 45px 5px;
+        }
     }
 }
 
@@ -42,7 +57,14 @@
 
 .featured-collection-product {
     width: calc(25% - 20px);
-    margin: 0 10px;   
+    margin: 0 10px;
+    @include media-query($small) {
+        width: 100%;
+        margin: 0;
+    }
+    @include media-query($medium) {
+        width: calc(50% - 20px);
+    } 
     img {
         width: 100%;
     }
