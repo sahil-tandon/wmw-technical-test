@@ -4,8 +4,21 @@
  * Base styling for the featured collection product grid.
  *
  */
-.featured-collection {
-    margin: 40px 100px 70px 100px;
+ .featured-collection {
+    margin: 40px 100px 70px 100px;   
+    h2 {
+        font-size: 40px;
+        line-height: 49px;
+        color: #003366;
+        text-align: center;
+    }
+    .featured-collection-description {        
+        font-size: 18px;
+        line-height: 26px;
+        color: #9B9B9B;
+        text-align: center;
+        margin: 30px 20% 45px 20%;        
+    }
 }
 
 .featured-collection-product {
