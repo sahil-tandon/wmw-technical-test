@@ -17,7 +17,26 @@
         line-height: 26px;
         color: #9B9B9B;
         text-align: center;
-        margin: 30px 20% 45px 20%;        
+        margin: 30px 20% 45px 20%;
+    }
+}
+
+.featured-collection-carousel {    
+    .flickity-button {
+        background: transparent;
+    }
+    .flickity-button-icon {
+        fill: #999999;
+    }
+    .flickity-prev-next-button {
+        width: 50px;
+        height: 50px;
+    }
+    .flickity-prev-next-button.previous {
+        left: -60px;
+    }
+    .flickity-prev-next-button.next {
+        right: -60px;
     }
 }
 
