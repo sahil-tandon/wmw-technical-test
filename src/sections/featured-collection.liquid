@@ -24,6 +24,11 @@
             {% endif %}
           </a>
           <span class="quick-add" js-ajax-cart="addToCart" data-variant-id="{{ current_variant.id }}" data-quantity="1">Add to cart</span>
+          {% for tag in product.tags %}
+            {% if tag contains 'badge: sale' %}
+              <span class="sale-badge">Sale</span>
+            {% endif %}
+          {% endfor %}
         </div>
         <div class="product-info">
           <a href="{{ product.url | within: collection }}">{{ product.title | escape }}</a>
