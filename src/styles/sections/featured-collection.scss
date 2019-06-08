@@ -53,6 +53,16 @@
     .flickity-prev-next-button.next {
         right: -60px;
     }
+    .flickity-page-dots {
+        bottom: -10px;
+        @include media-query($medium-down) {
+            bottom: -25px;
+        }
+        .dot {
+            width: 7px;
+            height: 7px;            
+        }
+    }
 }
 
 .featured-collection-product {
