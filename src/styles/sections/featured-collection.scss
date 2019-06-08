@@ -58,7 +58,7 @@
         right: -60px;
     }
     .flickity-page-dots {
-        bottom: -10px;
+        bottom: -20px;
         @include media-query($medium-down) {
             bottom: -25px;
         }
