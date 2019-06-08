@@ -23,7 +23,7 @@
               {{ product.featured_image | img_url: 'large' | img_tag }}
             {% endif %}
           </a>
-          <span js-ajax-cart="addToCart" data-variant-id="{{ current_variant.id }}" data-quantity="1">Add to cart</span>          
+          <span class="quick-add" js-ajax-cart="addToCart" data-variant-id="{{ current_variant.id }}" data-quantity="1">Add to cart</span>
         </div>
         <div class="product-info">
           <a href="{{ product.url | within: collection }}">{{ product.title | escape }}</a>

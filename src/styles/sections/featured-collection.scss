@@ -48,6 +48,29 @@
     }
     .product-image {
         position: relative;
+        &:hover .quick-add {
+            opacity: 1;
+        }
+        a {
+            display: block;
+            line-height: 0;
+        }
+    }
+    .quick-add {
+        opacity: 0;
+        background: white;
+        position: absolute;
+        bottom: 18px;
+        left: 18px;
+        right: 18px;
+        padding: 12px 0;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 23px;
+        color: #003366;
+        transition: 0.2s ease-in-out;
+        cursor: pointer;
     }
     .product-info {
         margin-top: 10px;
