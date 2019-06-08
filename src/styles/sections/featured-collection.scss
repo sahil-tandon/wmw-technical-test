@@ -5,5 +5,32 @@
  *
  */
 .featured-collection {
-  
+    margin: 40px 100px 70px 100px;
+}
+
+.featured-collection-product {
+    width: calc(25% - 20px);
+    margin: 0 10px;   
+    img {
+        width: 100%;
+    }
+    .product-image {
+        position: relative;
+    }
+    .product-info {
+        margin-top: 10px;
+    }
+    .product-info a {
+      font-weight: bold;
+      font-size: 21px;
+      line-height: 26px;
+      text-decoration: none;
+      color: #003366;
+    }
+    .product-info p {
+        font-size: 18px;
+        line-height: 26px;
+        color: #9B9B9B;
+        margin: 10px 0 0 0;
+    }
 }

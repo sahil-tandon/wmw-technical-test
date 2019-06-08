@@ -17,15 +17,24 @@ import {register} from '@shopify/theme-sections';
 register('featured-collection', {
 
   init() {
-    window.console.log('Initialising featured collection section');
+    this.initCache();
+    this.initCarousel();
   },
 
-  publicMethod() {
-    // Custom public section method
+  // Initialize featured collection cache
+  initCache() {
+    this.cache = {
+      carousel: $('.featured-collection-carousel'),
+    }
   },
 
-  _privateMethod() {
-    // Custom private section method
+  // Initialize featured collection carousel
+  initCarousel() {
+    this.cache.carousel.flickity({
+      cellAlign: 'center',
+      contain: true,
+      groupCells: '100%',
+    });
   },
 
   // Shortcut function called when a section is loaded via 'sections.load()' or by the Theme Editor 'shopify:section:load' event.
