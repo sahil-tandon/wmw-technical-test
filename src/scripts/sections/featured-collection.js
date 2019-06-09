@@ -32,7 +32,7 @@ register('featured-collection', {
   // Intialize featured collection events
   initEvents() {
     this.initCarousel();
-    this.cache.quickAddBtn.click({updateCartRef: this.updateCart}, this.quickAdd);
+    this.cache.quickAddBtn.click({updateCartRef: this.updateCart, notifyRef: this.notify}, this.quickAdd);
   },
 
   // Initialize featured collection carousel
@@ -62,18 +62,19 @@ register('featured-collection', {
       },
       dataType: 'json',
       updateCart: event.data.updateCartRef,
+      notify: event.data.notifyRef,
     })
     .done(function(response) {      
       if(response.message !== undefined) {
-        alert(response.message);        
+        this.notify(response.message);        
       }
       else {
-        alert("Hooray! The item was added to your Cart.");
+        this.notify("Hooray! The item was added to your Cart.");
         this.updateCart();
       }
     })
     .fail(function(response) {
-      alert("Oops! Looks like something went wrong. Please try again later.");
+      this.notify("Oops! Looks like something went wrong. Please try again later.");
     });
   },
 
@@ -84,6 +85,15 @@ register('featured-collection', {
         $('.site-header__cart').get(0).lastChild.nodeValue = ` Cart (${response.item_count})`;
       }
     });
+  },
+
+  // Function to generate a popup notification with a passed message
+  notify(msg) {
+    $('.notification-popout').text(msg).addClass("active");
+
+    setTimeout(function(){
+      $('.notification-popout').removeClass("active");
+    }, 4000);
   },
 
   // Shortcut function called when a section is loaded via 'sections.load()' or by the Theme Editor 'shopify:section:load' event.
