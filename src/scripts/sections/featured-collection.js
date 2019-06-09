@@ -49,10 +49,26 @@ register('featured-collection', {
     var thisVariant = $(this).data('variant-id'),
         thisQuantity = $(this).data('quantity');
         
-    $.post('/cart/add.js', {
-      quantity: thisQuantity,
-      id: thisVariant
-    });    
+    $.ajax({
+      type: 'get',
+      url: '/cart/add.js',          
+      data: {
+        quantity: thisQuantity,
+        id: thisVariant
+      },
+      dataType: 'json'
+    })
+    .done(function(response) {      
+      if(response.message !== undefined) {
+        alert(response.message);        
+      }
+      else {
+        alert("Hooray! The item was added to your Cart.");        
+      }
+    })
+    .fail(function(response) {
+      alert("Oops! Looks like something went wrong. Please try again later.");
+    });
   },
 
   // Shortcut function called when a section is loaded via 'sections.load()' or by the Theme Editor 'shopify:section:load' event.
