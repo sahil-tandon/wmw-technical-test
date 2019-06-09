@@ -25,14 +25,14 @@ register('featured-collection', {
   initCache() {
     this.cache = {
       carousel: $('.featured-collection-carousel'),
-      quickAddBtn: $('.featured-collection-carousel .quick-add')
+      quickAddBtn: $('.featured-collection-carousel .quick-add'),
     }
   },
 
   // Intialize featured collection events
   initEvents() {
     this.initCarousel();
-    this.cache.quickAddBtn.click(this.quickAdd);
+    this.cache.quickAddBtn.click({updateCartRef: this.updateCart}, this.quickAdd);
   },
 
   // Initialize featured collection carousel
@@ -60,18 +60,29 @@ register('featured-collection', {
         quantity: thisQuantity,
         id: thisVariant
       },
-      dataType: 'json'
+      dataType: 'json',
+      updateCart: event.data.updateCartRef,
     })
     .done(function(response) {      
       if(response.message !== undefined) {
         alert(response.message);        
       }
       else {
-        alert("Hooray! The item was added to your Cart.");        
+        alert("Hooray! The item was added to your Cart.");
+        this.updateCart();
       }
     })
     .fail(function(response) {
       alert("Oops! Looks like something went wrong. Please try again later.");
+    });
+  },
+
+  // Function to fetch cart details and update cart quantity shown next to the cart icon in the header
+  updateCart() {
+    $.getJSON('/cart.js', function(response){
+      if(response.item_count !== undefined) {
+        $('.site-header__cart').get(0).lastChild.nodeValue = ` Cart (${response.item_count})`;
+      }
     });
   },
 
