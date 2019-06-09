@@ -40,7 +40,11 @@ register('featured-collection', {
     this.cache.carousel.flickity({
       cellAlign: 'center',
       contain: true,
+      freeScroll: false,
+      wrapAround: true,
       groupCells: '100%',
+      friction: 0.4,
+      selectedAttraction: 0.015,
     });
   },
 
